@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">SIL</string>
+    <string name="todo">TODO</string>
+
+    <string name="system">System</string>
+    <string name="internet">Internet</string>
+    <string name="social">Social</string>
+    <string name="games">Games</string>
+    <string name="other">Other</string>
+
+    <string name="uninstall">Uninstall app</string>
+    <string name="remove_from_folder">Remove From Folder</string>
+    <string name="remove_note">Remove Note</string>
+</resources>

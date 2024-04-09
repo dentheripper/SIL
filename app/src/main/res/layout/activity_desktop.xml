@@ -2,10 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF">
+    android:background="#000">
 
     <RelativeLayout
-        android:id="@+id/time_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -16,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textColor="#000"
+            android:textColor="@color/light_blue"
             android:textSize="40sp"
             android:textStyle="bold" />
 
@@ -26,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/time"
             android:gravity="center"
-            android:textColor="#000"
+            android:textColor="@color/light_blue"
             android:textStyle="bold" />
 
         <TextView
@@ -34,8 +33,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/date"
-            android:gravity="center"
-            android:textColor="#000"
+            android:gravity="center_vertical"
+            android:textColor="@color/light_blue"
             android:textStyle="bold" />
 
     </RelativeLayout>
@@ -53,7 +52,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/system"
-            android:textColor="#000"
+            android:textColor="@color/light_blue"
             android:textSize="25sp"
             android:textStyle="bold" />
 
@@ -65,7 +64,7 @@
             android:layout_marginTop="5dp"
             android:gravity="center"
             android:text="@string/internet"
-            android:textColor="#000"
+            android:textColor="@color/light_blue"
             android:textSize="25sp"
             android:textStyle="bold" />
 
@@ -77,19 +76,19 @@
             android:layout_marginTop="5dp"
             android:gravity="center"
             android:text="@string/social"
-            android:textColor="#000"
+            android:textColor="@color/light_blue"
             android:textSize="25sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/games_folder"
+            android:id="@+id/life_folder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/social_folder"
             android:layout_marginTop="5dp"
             android:gravity="center"
-            android:text="@string/games"
-            android:textColor="#000"
+            android:text="@string/life"
+            android:textColor="@color/light_blue"
             android:textSize="25sp"
             android:textStyle="bold" />
 
@@ -97,11 +96,11 @@
             android:id="@+id/other_folder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/games_folder"
+            android:layout_below="@id/life_folder"
             android:layout_marginTop="5dp"
             android:gravity="center"
             android:text="@string/other"
-            android:textColor="#000"
+            android:textColor="@color/light_blue"
             android:textSize="25sp"
             android:textStyle="bold" />
 
@@ -119,7 +118,7 @@
         android:layout_marginBottom="5dp"
         android:contentDescription="@string/todo"
         android:padding="5dp"
-        android:src="@drawable/ic_baseline_call_24" />
+        android:src="@drawable/call" />
 
     <ImageView
         android:id="@+id/settings"
@@ -129,7 +128,7 @@
         android:layout_alignParentEnd="true"
         android:padding="5dp"
         android:layout_margin="5dp"
-        android:src="@drawable/ic_baseline_settings_24"
+        android:src="@drawable/settings"
         android:contentDescription="@string/todo" />
 
 </RelativeLayout>

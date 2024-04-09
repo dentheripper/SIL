@@ -10,7 +10,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:src="@drawable/ic_baseline_check_24"
+        android:src="@drawable/check"
         android:background="@drawable/circle"
         android:contentDescription="@string/todo" />
 </RelativeLayout>

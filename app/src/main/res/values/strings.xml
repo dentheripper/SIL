@@ -2,13 +2,15 @@
     <string name="app_name">SIL</string>
     <string name="todo">TODO</string>
 
+    <string name="owm_api_key">79c0d2d9ba86efd36ae5a4f416c1a66c</string>
+    <string name="owm_api_link">http://api.openweathermap.org/data/2.5/weather</string>
+
     <string name="system">System</string>
     <string name="internet">Internet</string>
     <string name="social">Social</string>
-    <string name="games">Games</string>
+    <string name="life">Life</string>
     <string name="other">Other</string>
 
     <string name="uninstall">Uninstall app</string>
     <string name="remove_from_folder">Remove From Folder</string>
-    <string name="remove_note">Remove Note</string>
 </resources>

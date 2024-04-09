@@ -1,15 +1,12 @@
-package com.randeztrying.sil.Adapters;
+package com.randeztrying.sil.View.Adapters;
 
 import android.app.ActivityOptions;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
@@ -17,14 +14,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.randeztrying.sil.Helpers.Prefs;
+import com.google.android.material.snackbar.Snackbar;
+import com.randeztrying.sil.Controller.Prefs;
 import com.randeztrying.sil.Models.App;
 import com.randeztrying.sil.R;
 
 import java.util.Collections;
 import java.util.List;
 
-public class AppsAdapter extends RecyclerView.Adapter<AppsAdapter.ViewHolder> {
+public class AppsAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     private final Context context;
     private final List<App> appList;
@@ -38,32 +36,31 @@ public class AppsAdapter extends RecyclerView.Adapter<AppsAdapter.ViewHolder> {
         this.dialogWindow = dialogWindow;
         this.packageManager = packageManager;
         this.folderName = folderName;
-
         Collections.sort(appList);
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.menu_app, parent, false));
+        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.text_item, parent, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.appName.setText(appList.get(position).getAppName());
+        holder.text.setText(appList.get(position).getAppName());
 
         holder.itemView.setOnClickListener(v -> {
-            Intent intent;
-            intent = packageManager.getLaunchIntentForPackage(appList.get(position).getPackageName());
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(intent, ActivityOptions.makeCustomAnimation(context, 0, 0).toBundle());
-            dialogWindow.cancel();
+            Intent intent = packageManager.getLaunchIntentForPackage(appList.get(position).getPackageName());
+            if (intent != null) {
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent, ActivityOptions.makeCustomAnimation(context, 0, 0).toBundle());
+                dialogWindow.cancel();
+            } else Snackbar.make(v, "Can't open app", Snackbar.LENGTH_SHORT).show();
         });
         holder.itemView.setOnLongClickListener(v -> {
             Dialog dialogWindow = new Dialog(v.getRootView().getContext());
 
             dialogWindow.setContentView(R.layout.alert_app_action);
-            dialogWindow.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
             TextView appName = dialogWindow.findViewById(R.id.app_name);
             Button rmFromFolder = dialogWindow.findViewById(R.id.remove_from_folder);
@@ -112,17 +109,5 @@ public class AppsAdapter extends RecyclerView.Adapter<AppsAdapter.ViewHolder> {
     }
 
     @Override
-    public int getItemCount() {
-        return appList.size();
-    }
-
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-
-        public TextView appName;
-
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            appName = itemView.findViewById(R.id.app_name);
-        }
-    }
+    public int getItemCount() {return appList.size();}
 }
